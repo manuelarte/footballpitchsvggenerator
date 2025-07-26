@@ -16,7 +16,7 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
   role="img"
   aria-labelledby="title"
   preserveAspectRatio="xMidYMid meet"
-  viewBox="0 0 {{ eval({{ $pitch_width }} + 2*{{ $extra_space }}) }} {{ eval({{ $pitch_length }} + 2*{{ $extra_space }}) }}">
+  viewBox="0 0 {{ eval({{ $pitch_width }} + 2*{{ $extra_space }}) }} {{ eval({{ $pitch_percentage_shown }}*({{ $pitch_length }} + 2*{{ $extra_space }})) }}">
   <title id="title">Football pitch</title>
 
   <defs>

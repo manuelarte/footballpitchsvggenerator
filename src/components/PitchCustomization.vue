@@ -26,14 +26,32 @@
         />
       </v-col>
     </v-row>
+    <v-row>
+      <v-col cols="12">
+        <v-slider
+          v-model="percentageShown"
+          label="Percentage Shown"
+          max="100"
+          min="50"
+          step="1"
+          thumb-label="always"
+          @update:model-value="$emit('update:percentageShown', $event/100)"
+        >
+          <template v-slot:thumb-label="{ modelValue }">
+            {{ modelValue }}%
+          </template>
+        </v-slider>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script setup lang="ts">
   const length = ref(120)
+  const percentageShown = ref(100)
   const width = ref(90)
 
-  defineEmits(['update:length', 'update:width'])
+  defineEmits(['update:length', 'update:percentageShown', 'update:width'])
 </script>
 
 <style scoped lang="sass">

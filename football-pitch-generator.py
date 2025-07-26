@@ -4,11 +4,13 @@ import re
 class FootballPitchVars:
     pitch_length: int
     pitch_width: int
+    pitch_percentage_shown: float
     pitch_grass_cut_width: int
     extra_space: int
     def __init__(self):
         self.pitch_length = 120
         self.pitch_width = 90
+        self.pitch_percentage_shown = 0.6
         self.pitch_grass_cut_width = 10
         self.extra_space = 3
 

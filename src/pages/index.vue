@@ -8,6 +8,7 @@
       <v-col cols="6">
         <PitchCustomization
           @update:length="onLengthUpdated"
+          @update:percentage-shown="onPercentageShownUpdated"
           @update:width="onWidthUpdated"
         />
       </v-col>
@@ -22,6 +23,10 @@
 <script lang="ts" setup>
   const onLengthUpdated = (newLength: number): void => {
     console.log('New length', newLength)
+  }
+
+  const onPercentageShownUpdated = (newPercentageShown: number): void => {
+    console.log('New percentage shown', newPercentageShown)
   }
 
   const onWidthUpdated = (newWeight: number): void => {
