@@ -22,7 +22,7 @@ export class FootballPitchVariables {
   /**
    * The percentage of the pitch shown. From [0-1]
    */
-  get percentageShown(): number {
+  get percentageShown (): number {
     return this._percentageShown
   }
 
