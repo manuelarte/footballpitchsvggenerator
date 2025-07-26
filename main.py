@@ -1,6 +1,5 @@
 import re
 
-
 class FootballPitchVars:
     pitch_length: int
     pitch_width: int
@@ -33,6 +32,7 @@ def main():
         with open(f"football-pitch-parsed-{template_vars.pitch_length}_{template_vars.pitch_width}.svg", "w") as text_file:
             text_file.write(template)
             print("SVG file created")
+
 
 if __name__ == "__main__":
     main()
