@@ -3,7 +3,7 @@
     <v-toolbar-title>Football Pitch SVG Generator</v-toolbar-title>
     <v-btn icon="mdi-github" @click="goToGitHubPage()" />
   </v-toolbar>
-  <v-container class="fill-height" v-if="!isLoading">
+  <v-container v-if="!isLoading" class="fill-height">
     <v-row justify="center">
       <v-col cols="6">
         <PitchCustomization
@@ -17,16 +17,16 @@
       </v-col>
     </v-row>
   </v-container>
-  <v-skeleton-loader v-if="isLoading" type="card"></v-skeleton-loader>
+  <v-skeleton-loader v-if="isLoading" type="card" />
 
 </template>
 
 <script lang="ts" setup>
-import {loadPyodide, type PyodideInterface} from "pyodide";
+  import { loadPyodide, type PyodideInterface } from 'pyodide'
 
   const pyodide: Promise<PyodideInterface> = loadPyodide({
-    indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.28.0/full/'
-  });
+    indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.28.0/full/',
+  })
 
   const isLoading = ref(true)
 
@@ -52,7 +52,7 @@ import {loadPyodide, type PyodideInterface} from "pyodide";
       console.log(p.runPython(`
             import sys
             sys.version
-        `));
+        `))
     })
   })
 </script>
