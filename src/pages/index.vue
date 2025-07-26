@@ -20,7 +20,6 @@
 </template>
 
 <script lang="ts" setup>
-
   const onLengthUpdated = (newLength: number): void => {
     console.log('New length', newLength)
   }
