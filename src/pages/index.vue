@@ -12,7 +12,7 @@
         />
       </v-col>
       <v-col cols="6">
-        <img src="/default-football-pitch.svg" alt="example football field" />
+        <img alt="example football field" src="/default-football-pitch.svg">
       </v-col>
     </v-row>
   </v-container>
