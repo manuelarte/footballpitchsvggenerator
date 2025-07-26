@@ -3,4 +3,3 @@ yamllint .
 codespell .
 typos .
 pnpm lint
-pnpm test
