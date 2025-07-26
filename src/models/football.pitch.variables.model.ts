@@ -5,7 +5,7 @@ export class FootballPitchVariables {
 
   constructor (length: number, width: number, percentageShown: number) {
     if (!Number.isInteger(percentageShown) || percentageShown < 50 || percentageShown > 100) {
-      throw new Error("not valid percentage shown")
+      throw new Error('not valid percentage shown')
     }
     this._length = length
     this._width = width
@@ -17,6 +17,13 @@ export class FootballPitchVariables {
    */
   get length (): number {
     return this._length
+  }
+
+  /**
+   * The percentage of the pitch shown. From [0-1]
+   */
+  get percentageShown(): number {
+    return this._percentageShown
   }
 
   /**

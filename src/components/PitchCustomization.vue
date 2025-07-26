@@ -37,7 +37,7 @@
           thumb-label="always"
           @update:model-value="$emit('update:percentageShown', $event/100)"
         >
-          <template v-slot:thumb-label="{ modelValue }">
+          <template #thumb-label="{ modelValue }">
             {{ modelValue }}%
           </template>
         </v-slider>
