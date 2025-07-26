@@ -7,7 +7,7 @@
     <v-row justify="center">
       <v-col cols="6">
         <PitchCustomization
-          @update:height="onHeightUpdated"
+          @update:length="onLengthUpdated"
           @update:width="onWidthUpdated"
         />
       </v-col>
@@ -21,8 +21,8 @@
 
 <script lang="ts" setup>
 
-  const onHeightUpdated = (newHeight: number): void => {
-    console.log('New height', newHeight)
+  const onLengthUpdated = (newLength: number): void => {
+    console.log('New length', newLength)
   }
 
   const onWidthUpdated = (newWeight: number): void => {
