@@ -3,10 +3,20 @@
     <v-toolbar-title>Football Pitch SVG Generator</v-toolbar-title>
     <v-btn icon="mdi-github" @click="goToGitHubPage()" />
   </v-toolbar>
-  <PitchCustomization
-    @update:height="onHeightUpdated"
-    @update:width="onWidthUpdated"
-  />
+  <v-container class="fill-height">
+    <v-row justify="center">
+      <v-col cols="6">
+        <PitchCustomization
+          @update:height="onHeightUpdated"
+          @update:width="onWidthUpdated"
+        />
+      </v-col>
+      <v-col cols="6">
+        <img src="/default-football-pitch.svg" alt="example football field" />
+      </v-col>
+    </v-row>
+  </v-container>
+
 </template>
 
 <script lang="ts" setup>

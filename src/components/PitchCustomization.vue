@@ -5,8 +5,8 @@
         <v-slider
           v-model="width"
           label="Width"
-          max="120"
-          min="90"
+          max="90"
+          min="45"
           step="1"
           thumb-label="always"
           @update:model-value="$emit('update:width', $event)"
@@ -14,14 +14,15 @@
       </v-col>
       <v-col>
         <v-slider
-          v-model="height"
+          v-model="length"
           direction="vertical"
-          label="Height"
-          max="90"
-          min="45"
+          label="Length"
+          max="120"
+          min="90"
+          reverse
           step="1"
           thumb-label="always"
-          @update:model-value="$emit('update:height', $event)"
+          @update:model-value="$emit('update:length', $event)"
         />
       </v-col>
     </v-row>
@@ -29,10 +30,10 @@
 </template>
 
 <script setup lang="ts">
-  const width = ref(120)
-  const height = ref(90)
+  const length = ref(120)
+  const width = ref(90)
 
-  defineEmits(['update:height', 'update:width'])
+  defineEmits(['update:length', 'update:width'])
 </script>
 
 <style scoped lang="sass">

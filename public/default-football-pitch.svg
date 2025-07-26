@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Measurement based on https://www.youtube.com/watch?v=rJg9wOQ7Qtg
+
+Constants:
+  $field_width: 120
+  $field_height: 90
+  $field_grass_cut_height: 10
+  $extra_space: 3
+field is 90/120, but we give 3 units extra on each side.
+$viewBox = "0 0 ($field_height + 2*$extra_space) ($field_width + 2*$extra_space)"
+-->
+<svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        role="img"
+        aria-labelledby="title"
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 96 126">
+    <title id="title">Football field</title>
+
+    <defs>
+        <linearGradient id="grass1">
+            <stop stop-color="#3E7B3E"/>
+        </linearGradient>
+        <linearGradient id="grass2">
+            <stop stop-color="#4A934A"/>
+        </linearGradient>
+        <pattern id="net" x="0" y="0" width="0.02" height="0.02">
+            <path stroke-width="0.01" stroke="yellow" d="M 0 0 L 7.32 0"/>
+            <path stroke-width="0.01" stroke="yellow" d="M 0 0 L 0 2.44"/>
+        </pattern>
+    </defs>
+
+    <rect id="field-part1" width="100%" height="10" fill="url(#grass1)"/>
+    <rect id="field-part1" width="100%" height="10" y="10" fill="url(#grass2)"/>
+    <rect id="field-part1" width="100%" height="10" y="20" fill="url(#grass1)"/>
+    <rect id="field-part1" width="100%" height="10" y="30" fill="url(#grass2)"/>
+    <rect id="field-part1" width="100%" height="10" y="40" fill="url(#grass1)"/>
+    <rect id="field-part1" width="100%" height="10" y="50" fill="url(#grass2)"/>
+    <rect id="field-part1" width="100%" height="10" y="60" fill="url(#grass1)"/>
+    <rect id="field-part1" width="100%" height="10" y="70" fill="url(#grass2)"/>
+    <rect id="field-part1" width="100%" height="10" y="80" fill="url(#grass1)"/>
+    <rect id="field-part1" width="100%" height="10" y="90" fill="url(#grass2)"/>
+    <rect id="field-part1" width="100%" height="10" y="100" fill="url(#grass1)"/>
+    <rect id="field-part1" width="100%" height="10" y="110" fill="url(#grass2)"/>
+    <rect id="field-part1" width="100%" height="10" y="120" fill="url(#grass1)"/>
+
+    <!--
+    Grouping all the fields
+    @field-change: if we want to change the dimensions of the fields, transform="translate(3 3)"
+    needs to change according to the view port, if for example we want to leave 3 units (on each side)
+    as an extra space between the lines and the end of the svg, then we need to put as view port
+    transform="translate($extra_space $extra_space)"
+     -->
+    <g id="field-lines" fill="none" stroke="white" transform="translate(3 3)">
+        <!--
+        @field-change: d="M 0 0 h $field_height v $field_width h -90 Z"
+        -->
+        <path id="border" d="M 0 0 h 90 v 120 h -90 Z" />
+        <!--
+        @field-change: d="M 0 $field_width/2 h $field_height"
+        -->
+        <path id="center-line" d="M 0 60.0 h 90" />
+        <!--
+        @field-change: cx="$field_height/2" cy="$field_width/2"
+        -->
+        <circle id="center-circle" r="9.1" cx="45.0" cy="60.0" />
+        <!--
+        @field-change: cx="($field_height/2" cy="$field_width/2"
+        -->
+        <circle id="center-point" r="0.5" cx="45.0" cy="60.0" />
+
+        <g id="penalty-up" >
+            <!--
+            @field-change: x="transform: translate($field_height/2-7.32/2), -.2.5)"
+            -->
+            <g id="goal" transform="translate(41.34 -2.5)">
+                <path id="goal-frame" fill="url(#net)" stroke-width="0.2" d="M 0 2.44 L 0 0 L 7.32 0 L 7.32 2.44" />
+            </g>
+            <!--
+            @field-change: d="M ($field_height/2 - 40.32/2) 0 v 16.5 h 40.32 v -16.5"
+            -->
+            <path id="penalty-area" d="M 24.84 0 v 16.5 h 40.32 v -16.5" />
+            <!--
+            @field-change: d="M ($field_height/2 - 18.32/2) 0 v 16.5 h 40.32 v -16.5"
+            -->
+            <path id="penalty-goal-area" d="M 35.84 0 v 5.5 h 18.32 v -5.5" />
+            <!--
+            @field-change: cx="$field_height/2"
+            -->
+            <circle id="penalty-spot" r="0.5" cx="45.0" cy="11" stroke="none" />
+            <!--
+            No idea how to center the arc based on the $field_height
+            -->
+            <path id="penalty-arc" d="M 37.5 16.5 a 9.1 9.1 0 0 0 15 0" />
+        </g>
+        <!--
+        @field-change: transform="rotate(180, $field_height/2, $field_width/2)"
+        -->
+        <use xlink:href="#penalty-up" transform="rotate(180, 45.0, 60.0)" />
+        <g id="corner-arcs" fill="none" stroke="white">
+            <!--
+            @field-change: d="M 0 $extra_space a $extra_space $extra_space 0 0 0 $extra_space -$extra_spaceM"
+            -->
+            <path id="corner-arc-left-up" d="M 0 3 a 3 3 0 0 0 3 -3M" />
+            <use id="corner-arc-left-down" xlink:href="#corner-arc-left-up" transform="rotate(270, 60, 60)" />
+            <use id="corner-arc-right-up" xlink:href="#corner-arc-left-up" transform="rotate(90, 45, 45)" />
+            <use id="corner-arc-right-down" xlink:href="#corner-arc-left-up" transform="rotate(180, 45, 60)" />
+        </g>
+    </g>
+</svg>
