@@ -1,6 +1,7 @@
 export class FootballPitchVariables {
   private readonly _extraSpace: number
   private readonly _length: number
+  private readonly _linesWidth: number
   private readonly _percentageShown: number
   private readonly _width: number
 
@@ -16,6 +17,7 @@ export class FootballPitchVariables {
     }
     this._extraSpace = 3
     this._length = length
+    this._linesWidth = 0.1
     this._width = width
     this._percentageShown = percentageShown
   }
@@ -29,6 +31,13 @@ export class FootballPitchVariables {
    */
   get length (): number {
     return this._length
+  }
+
+  /**
+   * The width of the lines.
+   */
+  get linesWidth (): number {
+    return this._linesWidth
   }
 
   /**

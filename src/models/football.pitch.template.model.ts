@@ -9,6 +9,7 @@ Constants:
   $pitch_length: The length of the pitch.
   $pitch_width: The width of the pitch.
   $pitch_grass_cut_width: The roller mower's width that produces a different color effect in the grass.
+  $pitch_lines_width: The width of the lines.
   $pitch_percentage_shown: The percentage of the pitch that is shown.
   $extra_space: Extra space between the side lines and the end of the pitch.
 pitch is {{ $pitch_width }}/{{ $pitch_length }}, but we give {{ $extra_space }} units extra on each side.
@@ -57,7 +58,7 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
   as an extra space between the lines and the end of the svg, then we need to put as view port
   transform="translate($extra_space $extra_space)"
    -->
-  <g id="pitch-lines" fill="none" stroke="white" transform="translate({{ $extra_space }} {{ $extra_space }})">
+  <g id="pitch-lines" fill="none" stroke="white" stroke-width="{{ $pitch_lines_width }}" transform="translate({{ $extra_space }} {{ $extra_space }})">
     <!--
     @pitch-change: d="M 0 0 h $pitch_width v $pitch_length h -90 Z"
     -->
@@ -73,7 +74,7 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
     <!--
     @pitch-change: cx="($pitch_width/2" cy="$pitch_length/2"
     -->
-    <circle id="center-point" r="0.5" cx="{{ eval({{ $pitch_width }}/2) }}" cy="{{ eval({{ $pitch_length }}/2) }}" />
+    <circle id="center-point" r="0.5" cx="{{ eval({{ $pitch_width }}/2) }}" cy="{{ eval({{ $pitch_length }}/2) }}" fill="white" />
 
     <g id="penalty-up" >
       <!--
@@ -121,6 +122,7 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
     let copy = this.TEMPLATE
     copy = copy.replaceAll(`{{ $extra_space }}`, vars.extraSpace.toString())
     copy = copy.replaceAll(`{{ $pitch_length }}`, vars.length.toString())
+    copy = copy.replaceAll(`{{ $pitch_lines_width }}`, vars.linesWidth.toString())
     copy = copy.replaceAll(`{{ $pitch_width }}`, vars.width.toString())
     copy = copy.replaceAll(`{{ $pitch_percentage_shown }}`, vars.percentageShown.toString())
 
