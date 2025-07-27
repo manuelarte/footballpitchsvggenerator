@@ -96,9 +96,9 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
       -->
       <circle id="penalty-spot" r="{{ eval({{ $pitch_lines_width }}*2) }}" cx="{{ eval({{ $pitch_width }}/2) }}" cy="11" stroke="none" fill="white" />
       <!--
-      No idea how to center the arc based on the $pitch_width
+      @pitch-change: d="M {{ eval({{ $pitch_width }}/2 - 9.1/2) }} 16.5 a 9.1 9.1 0 0 0 9.1 0"
       -->
-      <path id="penalty-arc" d="M 37.5 16.5 a 9.1 9.1 0 0 0 9.1 0" />
+      <path id="penalty-arc" d="M {{ eval({{ $pitch_width }}/2 - 9.1/2) }} 16.5 a 9.1 9.1 0 0 0 9.1 0" />
     </g>
     <!--
     @pitch-change: transform="rotate(180, $pitch_width/2, $pitch_length/2)"
