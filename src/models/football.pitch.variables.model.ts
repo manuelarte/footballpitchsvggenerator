@@ -19,7 +19,7 @@ export class FootballPitchVariables {
     this._length = length
     this._linesWidth = 0.1
     this._width = width
-    this._percentageShown = percentageShown
+    this._percentageShown = Number.parseFloat(percentageShown.toFixed(2))
   }
 
   get extraSpace (): number {
