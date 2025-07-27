@@ -5,18 +5,19 @@ name: Deploy to GitHub Pages
 on:
   release:
     types: [published]
-  # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
-# Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
   pages: write
   id-token: write
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
@@ -28,20 +29,10 @@ jobs:
         with:
           node-version: 20
           cache: "pnpm"
-
       - name: Install dependencies
         run: pnpm install
-
       - name: Build
         run: pnpm build
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: setup Pages
         uses: actions/configure-pages@v5
       - name: upload artifact
