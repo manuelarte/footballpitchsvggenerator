@@ -5,6 +5,12 @@ export class FootballPitchVariables {
   private readonly _width: number
 
   constructor (length: number, width: number, percentageShown: number) {
+    if (length < 90 || length > 120) {
+      throw new Error('not valid length')
+    }
+    if (width < 45 || width > 90) {
+      throw new Error('not valid width')
+    }
     if (!Number.isInteger(percentageShown) || percentageShown < 0.5 || percentageShown > 1) {
       throw new Error('not valid percentage shown')
     }
