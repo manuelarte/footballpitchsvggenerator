@@ -1,8 +1,7 @@
 import type { FootballPitchVariables } from '@/models/football.pitch.variables.model'
 
 export class FootballPitchTemplate {
-  TEMPLATE = `
-<?xml version="1.0" encoding="UTF-8"?>
+  TEMPLATE = `<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Measurement based on https://www.youtube.com/watch?v=rJg9wOQ7Qtg
 
@@ -114,8 +113,7 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
       <use id="corner-arc-right-down" xlink:href="#corner-arc-left-up" transform="rotate(180, 45, 60)" />
     </g>
   </g>
-</svg>
-  `
+</svg>`
 
   constructor () {}
 

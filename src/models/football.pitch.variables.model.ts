@@ -11,7 +11,7 @@ export class FootballPitchVariables {
     if (width < 45 || width > 90) {
       throw new Error(`not valid width: ${width}`)
     }
-    if (!Number.isInteger(percentageShown) || percentageShown < 0.5 || percentageShown > 1) {
+    if (percentageShown < 0.5 || percentageShown > 1) {
       throw new Error(`not valid percentage shown: ${percentageShown}`)
     }
     this._extraSpace = 3
