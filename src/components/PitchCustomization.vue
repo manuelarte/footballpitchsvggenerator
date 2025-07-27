@@ -12,7 +12,21 @@
             </v-row>
             <v-row>
               <v-col>
-                <img alt="example football field" :src="`data:image/svg+xml;base64,${svgContent}`">
+                <div
+                  class="football-pitch-container"
+                  @mouseleave="mouseleave"
+                  @mouseover="mouseover"
+                >
+                  <img alt="example football field" :src="`data:image/svg+xml;base64,${svgContent}`">
+                  <v-btn
+                    class="float-end position-absolute my-button"
+                    density="comfortable"
+                    :download="`football-pitch-${vars.length}x${vars.width}.svg`"
+                    :href="`data:image/svg+xml;base64,${svgContent}`"
+                    icon="mdi-content-save"
+                    :style="downloadButtonStyle"
+                  />
+                </div>
               </v-col>
             </v-row>
           </v-col>
@@ -40,8 +54,28 @@
     const content = new FootballPitchTemplate().apply(props.vars)
     return btoa(content)
   })
+
+  const downloadButtonStyle = ref()
+
+  const mouseover = (): void => {
+    downloadButtonStyle.value = {
+      display: 'block',
+    }
+  }
+
+  const mouseleave = () => {
+    downloadButtonStyle.value = {
+      display: 'none',
+    }
+  }
 </script>
 
 <style scoped lang="sass">
+.football-pitch-container
+  position: relative
+  .my-button
+    position: absolute
+    top: 16px
+    right: 16px
 
 </style>
