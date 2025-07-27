@@ -5,15 +5,47 @@
   </v-toolbar>
   <v-container v-if="!isLoading" class="fill-height">
     <v-row justify="center">
-      <v-col cols="6">
-        <PitchCustomization
-          @update:length="onLengthUpdated"
-          @update:percentage-shown="onPercentageShownUpdated"
-          @update:width="onWidthUpdated"
-        />
-      </v-col>
-      <v-col cols="6">
-        <img alt="example football field" src="/default-football-pitch.svg">
+      <v-col cols="12">
+        <PitchCustomization>
+          <template #width>
+            <v-slider
+              v-model="width"
+              label="Width"
+              max="90"
+              min="45"
+              step="0.5"
+              thumb-label="always"
+            />
+          </template>
+          <template #length>
+            <v-slider
+              v-model="length"
+              direction="vertical"
+              label="Length"
+              max="120"
+              min="90"
+              reverse
+              step="0.5"
+              thumb-label="always"
+            />
+          </template>
+          <template #percentageShown>
+            <v-slider
+              v-model="percentageShown"
+              direction="vertical"
+              label="Percentage Shown"
+              max="1"
+              min="0.5"
+              reverse
+              step="0.01"
+              thumb-label="always"
+            >
+              <template #thumb-label="{ modelValue }">
+                {{ modelValue*100 }}%
+              </template>
+            </v-slider>
+          </template>
+        </PitchCustomization>
       </v-col>
     </v-row>
   </v-container>
@@ -23,24 +55,16 @@
 
 <script lang="ts" setup>
   import { loadPyodide, type PyodideInterface } from 'pyodide'
+  import PitchCustomization from '@/components/PitchCustomization.vue'
 
   const pyodide: Promise<PyodideInterface> = loadPyodide({
     indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.28.0/full/',
   })
 
   const isLoading = ref(true)
-
-  const onLengthUpdated = (newLength: number): void => {
-    console.log('New length', newLength)
-  }
-
-  const onPercentageShownUpdated = (newPercentageShown: number): void => {
-    console.log('New percentage shown', newPercentageShown)
-  }
-
-  const onWidthUpdated = (newWeight: number): void => {
-    console.log('New width', newWeight)
-  }
+  const width = ref(90)
+  const length = ref(120)
+  const percentageShown = ref(1)
 
   const goToGitHubPage = (): void => {
     window.open('https://github.com/manuelarte/footballpitchsvggenerator')
