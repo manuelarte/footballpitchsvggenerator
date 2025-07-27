@@ -26,7 +26,14 @@
 </template>
 
 <script setup lang="ts">
+  import { FootballPitchVariables } from '@/models/football.pitch.variables.model'
 
+  const props = defineProps({
+    vars: {
+      type: FootballPitchVariables,
+      required: true,
+    },
+  })
 </script>
 
 <style scoped lang="sass">

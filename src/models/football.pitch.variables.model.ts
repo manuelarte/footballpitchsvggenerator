@@ -6,13 +6,13 @@ export class FootballPitchVariables {
 
   constructor (length: number, width: number, percentageShown: number) {
     if (length < 90 || length > 120) {
-      throw new Error('not valid length')
+      throw new Error(`not valid length: ${length}`)
     }
     if (width < 45 || width > 90) {
-      throw new Error('not valid width')
+      throw new Error(`not valid width: ${width}`)
     }
     if (!Number.isInteger(percentageShown) || percentageShown < 0.5 || percentageShown > 1) {
-      throw new Error('not valid percentage shown')
+      throw new Error(`not valid percentage shown: ${percentageShown}`)
     }
     this._extraSpace = 3
     this._length = length

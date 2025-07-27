@@ -6,7 +6,7 @@
   <v-container class="fill-height">
     <v-row justify="center">
       <v-col cols="12">
-        <PitchCustomization>
+        <PitchCustomization :vars="variables">
           <template #width>
             <v-slider
               v-model="width"
@@ -54,10 +54,19 @@
 
 <script lang="ts" setup>
   import PitchCustomization from '@/components/PitchCustomization.vue'
+  import { FootballPitchVariables } from '@/models/football.pitch.variables.model'
 
   const width = ref(90)
   const length = ref(120)
   const percentageShown = ref(1)
+
+  const variables = computed(() => {
+    return new FootballPitchVariables(
+      length.value,
+      width.value,
+      percentageShown.value,
+    )
+  })
 
   const goToGitHubPage = (): void => {
     window.open('https://github.com/manuelarte/footballpitchsvggenerator')
