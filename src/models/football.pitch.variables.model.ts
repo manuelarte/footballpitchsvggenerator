@@ -1,15 +1,21 @@
 export class FootballPitchVariables {
+  private readonly _extraSpace: number
   private readonly _length: number
   private readonly _percentageShown: number
   private readonly _width: number
 
   constructor (length: number, width: number, percentageShown: number) {
-    if (!Number.isInteger(percentageShown) || percentageShown < 50 || percentageShown > 100) {
+    if (!Number.isInteger(percentageShown) || percentageShown < 0.5 || percentageShown > 1) {
       throw new Error('not valid percentage shown')
     }
+    this._extraSpace = 3
     this._length = length
     this._width = width
     this._percentageShown = percentageShown
+  }
+
+  get extraSpace (): number {
+    return this._extraSpace
   }
 
   /**

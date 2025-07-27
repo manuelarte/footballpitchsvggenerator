@@ -1,13 +1,23 @@
+import { expect, test } from 'vitest'
+import { FootballPitchTemplate } from '@/models/football.pitch.template.model'
+import { FootballPitchVariables } from '@/models/football.pitch.variables.model'
+
+test('Template change to maximum width and length', () => {
+  const vars = new FootballPitchVariables(120, 90, 1)
+  const template = new FootballPitchTemplate()
+  const actual = template.apply(vars)
+  const expected = `
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 Measurement based on https://www.youtube.com/watch?v=rJg9wOQ7Qtg
 
 Constants:
-  $pitch_length: The length of the pitch
-  $pitch_width: The width of the pitch
-  $pitch_grass_cut_width: The roller mower's width that produces a different color effect in the grass
-  $extra_space: Extra space between the side lines and the end of the pitch
-pitch is {{ $pitch_width }}/{{ $pitch_length }}, but we give {{ $extra_space }} units extra on each side.
+  $pitch_length: The length of the pitch.
+  $pitch_width: The width of the pitch.
+  $pitch_grass_cut_width: The roller mower's width that produces a different color effect in the grass.
+  $pitch_percentage_shown: The percentage of the pitch that is shown.
+  $extra_space: Extra space between the side lines and the end of the pitch.
+pitch is 90/120, but we give 3 units extra on each side.
 $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)"
 -->
 <svg
@@ -16,7 +26,7 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
   role="img"
   aria-labelledby="title"
   preserveAspectRatio="xMidYMid meet"
-  viewBox="0 0 {{ eval({{ $pitch_width }} + 2*{{ $extra_space }}) }} {{ eval({{ $pitch_percentage_shown }}*({{ $pitch_length }} + 2*{{ $extra_space }})) }}">
+  viewBox="0 0 96 126">
   <title id="title">Football pitch</title>
 
   <defs>
@@ -53,43 +63,43 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
   as an extra space between the lines and the end of the svg, then we need to put as view port
   transform="translate($extra_space $extra_space)"
    -->
-  <g id="pitch-lines" fill="none" stroke="white" transform="translate({{ $extra_space }} {{ $extra_space }})">
+  <g id="pitch-lines" fill="none" stroke="white" transform="translate(3 3)">
     <!--
     @pitch-change: d="M 0 0 h $pitch_width v $pitch_length h -90 Z"
     -->
-    <path id="border" d="M 0 0 h {{ $pitch_width }} v {{ $pitch_length }} h -{{ $pitch_width }} Z" />
+    <path id="border" d="M 0 0 h 90 v 120 h -90 Z" />
     <!--
     @pitch-change: d="M 0 $pitch_length/2 h $pitch_width"
     -->
-    <path id="center-line" d="M 0 {{ eval({{ $pitch_length }}/2) }} h {{ $pitch_width }}" />
+    <path id="center-line" d="M 0 60 h 90" />
     <!--
     @pitch-change: cx="$pitch_width/2" cy="$pitch_length/2"
     -->
-    <circle id="center-circle" r="9.1" cx="{{ eval({{ $pitch_width }}/2) }}" cy="{{ eval({{ $pitch_length }}/2) }}" />
+    <circle id="center-circle" r="9.1" cx="45" cy="60" />
     <!--
     @pitch-change: cx="($pitch_width/2" cy="$pitch_length/2"
     -->
-    <circle id="center-point" r="0.5" cx="{{ eval({{ $pitch_width }}/2) }}" cy="{{ eval({{ $pitch_length }}/2) }}" />
+    <circle id="center-point" r="0.5" cx="45" cy="60" />
 
     <g id="penalty-up" >
       <!--
       @pitch-change: x="transform: translate($pitch_width/2-7.32/2), -.2.5)"
       -->
-      <g id="goal" transform="translate({{ eval({{ $pitch_width }}/2-7.32/2) }} -2.5)">
+      <g id="goal" transform="translate(41.34 -2.5)">
         <path id="goal-frame" fill="url(#net)" stroke-width="0.2" d="M 0 2.44 L 0 0 L 7.32 0 L 7.32 2.44" />
       </g>
       <!--
       @pitch-change: d="M ($pitch_width/2 - 40.32/2) 0 v 16.5 h 40.32 v -16.5"
       -->
-      <path id="penalty-area" d="M {{ eval({{ $pitch_width }}/2 - 40.32/2) }} 0 v 16.5 h 40.32 v -16.5" />
+      <path id="penalty-area" d="M 24.84 0 v 16.5 h 40.32 v -16.5" />
       <!--
       @pitch-change: d="M ($pitch_width/2 - 18.32/2) 0 v 16.5 h 40.32 v -16.5"
       -->
-      <path id="penalty-goal-area" d="M {{ eval({{ $pitch_width }}/2 - 18.32/2) }} 0 v 5.5 h 18.32 v -5.5" />
+      <path id="penalty-goal-area" d="M 35.84 0 v 5.5 h 18.32 v -5.5" />
       <!--
       @pitch-change: cx="$pitch_width/2"
       -->
-      <circle id="penalty-spot" r="0.5" cx="{{ eval({{ $pitch_width }}/2) }}" cy="11" stroke="none" />
+      <circle id="penalty-spot" r="0.5" cx="45" cy="11" stroke="none" />
       <!--
       No idea how to center the arc based on the $pitch_width
       -->
@@ -98,15 +108,18 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
     <!--
     @pitch-change: transform="rotate(180, $pitch_width/2, $pitch_length/2)"
     -->
-    <use xlink:href="#penalty-up" transform="rotate(180, {{ eval({{ $pitch_width }}/2) }}, {{ eval({{ $pitch_length }}/2) }})" />
+    <use xlink:href="#penalty-up" transform="rotate(180, 45, 60)" />
     <g id="corner-arcs" fill="none" stroke="white">
       <!--
       @pitch-change: d="M 0 $extra_space a $extra_space $extra_space 0 0 0 $extra_space -$extra_spaceM"
       -->
-      <path id="corner-arc-left-up" d="M 0 {{ $extra_space }} a {{ $extra_space }} {{ $extra_space }} 0 0 0 {{ $extra_space }} -{{ $extra_space }}M" />
+      <path id="corner-arc-left-up" d="M 0 3 a 3 3 0 0 0 3 -3M" />
       <use id="corner-arc-left-down" xlink:href="#corner-arc-left-up" transform="rotate(270, 60, 60)" />
       <use id="corner-arc-right-up" xlink:href="#corner-arc-left-up" transform="rotate(90, 45, 45)" />
       <use id="corner-arc-right-down" xlink:href="#corner-arc-left-up" transform="rotate(180, 45, 60)" />
     </g>
   </g>
 </svg>
+  `
+  expect(actual).toStrictEqual(expected)
+})

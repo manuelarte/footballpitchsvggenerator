@@ -1,7 +1,0 @@
-[project]
-name = "footballpitchsvggenerator"
-version = "0.0.1"
-description = "Generate a custom football pitch svg image"
-readme = "README.md"
-requires-python = ">=3.11"
-dependencies = []
