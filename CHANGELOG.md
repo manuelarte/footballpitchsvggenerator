@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.0.0 (2025-07-27)
+
+
+### Features
+
+* generate customized svg football field ([695b0c7](https://github.com/manuelarte/footballpitchsvggenerator/commit/695b0c786e4d7e8b476d8b8b35f70577a3a7fb01))
+
+
+### Bug Fixes
+
+* deploy pages ([028f886](https://github.com/manuelarte/footballpitchsvggenerator/commit/028f886007555c17679c9fa6144432f346b84280))
+* fix base vite url ([214ddb5](https://github.com/manuelarte/footballpitchsvggenerator/commit/214ddb51d4a49fd84b6ec11360fc92a587d0e3c6))
+
+## Changelog
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
