@@ -74,7 +74,7 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
     <!--
     @pitch-change: cx="($pitch_width/2" cy="$pitch_length/2"
     -->
-    <circle id="center-point" r="0.5" cx="{{ eval({{ $pitch_width }}/2) }}" cy="{{ eval({{ $pitch_length }}/2) }}" fill="white" />
+    <circle id="center-point" r="{{ eval({{ $pitch_lines_width }}*2) }}" cx="{{ eval({{ $pitch_width }}/2) }}" cy="{{ eval({{ $pitch_length }}/2) }}" fill="white" />
 
     <g id="penalty-up" >
       <!--
@@ -94,7 +94,7 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
       <!--
       @pitch-change: cx="$pitch_width/2"
       -->
-      <circle id="penalty-spot" r="0.5" cx="{{ eval({{ $pitch_width }}/2) }}" cy="11" stroke="none" />
+      <circle id="penalty-spot" r="{{ eval({{ $pitch_lines_width }}*2) }}" cx="{{ eval({{ $pitch_width }}/2) }}" cy="11" stroke="none" fill="white" />
       <!--
       No idea how to center the arc based on the $pitch_width
       -->
