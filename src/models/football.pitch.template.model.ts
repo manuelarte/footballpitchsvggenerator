@@ -108,10 +108,10 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
       <!--
       @pitch-change: d="M 0 $extra_space a $extra_space $extra_space 0 0 0 $extra_space -$extra_spaceM"
       -->
-      <path id="corner-arc-left-up" d="M 0 {{ $extra_space }} a {{ $extra_space }} {{ $extra_space }} 0 0 0 {{ $extra_space }} -{{ $extra_space }}M" />
-      <use id="corner-arc-left-down" xlink:href="#corner-arc-left-up" transform="rotate(270, 60, 60)" />
-      <use id="corner-arc-right-up" xlink:href="#corner-arc-left-up" transform="rotate(90, 45, 45)" />
-      <use id="corner-arc-right-down" xlink:href="#corner-arc-left-up" transform="rotate(180, 45, 60)" />
+      <path id="corner-arc-left-up" d="M 0 1 a 3 3 0 0 0 1 -1M" />
+      <use id="corner-arc-right-down" xlink:href="#corner-arc-left-up" transform="translate({{ $pitch_width }} {{ $pitch_length }}) rotate(180, 0, 0)" />
+      <use id="corner-arc-right-up" xlink:href="#corner-arc-left-up" transform="translate({{ $pitch_width }} 0) rotate(90, 0, 0)" />
+      <use id="corner-arc-left-down" xlink:href="#corner-arc-left-up" transform="translate(0 {{ $pitch_length }}) rotate(270, 0, 0)" />
     </g>
   </g>
 </svg>`
