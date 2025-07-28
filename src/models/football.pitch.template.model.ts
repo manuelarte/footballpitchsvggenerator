@@ -4,14 +4,7 @@ export class FootballPitchTemplate {
   constructor () {}
 
   apply (vars: FootballPitchVariables): string {
-    let copy = templateSVG(vars.length, vars.width, vars.percentageShown, vars.linesWidth, vars.extraSpace)
-
-    const evalRe = /{{ eval\(([^}]*)\) }}/gi
-    copy = copy.replaceAll(evalRe, (_: string, p1: string) => {
-      return eval(p1).toString()
-    })
-
-    return copy
+    return templateSVG(vars.length, vars.width, vars.percentageShown, vars.linesWidth, vars.extraSpace)
   }
 }
 
@@ -42,7 +35,7 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
   role="img"
   aria-labelledby="title"
   preserveAspectRatio="xMidYMid meet"
-  viewBox="0 0 {{ eval(${pitch_width} + 2*${extra_space}) }} {{ eval(${pitch_percentage_shown}*(${pitch_length} + 2*${extra_space})) }}">
+  viewBox="0 0 ${pitch_width + 2 * extra_space} ${pitch_percentage_shown * (pitch_length + 2 * extra_space)}">
   <title id="title">Football pitch</title>
 
   <defs>
@@ -87,47 +80,47 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
     <!--
     @pitch-change: d="M 0 $pitch_length/2 h $pitch_width"
     -->
-    <path id="center-line" d="M 0 {{ eval(${pitch_length}/2) }} h ${pitch_width}" />
+    <path id="center-line" d="M 0 ${pitch_length / 2} h ${pitch_width}" />
     <!--
     @pitch-change: cx="$pitch_width/2" cy="$pitch_length/2"
     -->
-    <circle id="center-circle" r="9.1" cx="{{ eval(${pitch_width}/2) }}" cy="{{ eval(${pitch_length}/2) }}" />
+    <circle id="center-circle" r="9.1" cx="${pitch_width / 2}" cy="${pitch_length / 2}" />
     <!--
     @pitch-change: cx="($\{pitch_width}/2" cy="$\{pitch_length}/2"
     -->
-    <circle id="center-point" r="{{ eval(${pitch_lines_width}*2) }}" cx="{{ eval(${pitch_width}/2) }}" cy="{{ eval(${pitch_length}/2) }}" fill="white" />
+    <circle id="center-point" r="${pitch_lines_width * 2}" cx="${pitch_width / 2}" cy="${pitch_length / 2}" fill="white" />
 
     <g id="penalty-up" >
       <!--
       @pitch-change: x="transform: translate($pitch_width/2-7.32/2), -.2.5)"
       -->
-      <g id="goal" transform="translate({{ eval(${pitch_width}/2-7.32/2) }} -2.5)">
+      <g id="goal" transform="translate(${(pitch_width - 7.32) / 2} -2.5)">
         <path id="goal-frame" fill="url(#net)" stroke-width="0.2" d="M 0 2.44 L 0 0 L 7.32 0 L 7.32 2.44" />
       </g>
       <!--
       @pitch-change: d="M ($\{pitch_width}/2 - 40.32/2) 0 v 16.5 h 40.32 v -16.5"
       -->
-      <path id="penalty-area" d="M {{ eval(${pitch_width}/2 - 40.32/2) }} 0 v 16.5 h 40.32 v -16.5" />
+      <path id="penalty-area" d="M ${(pitch_width - 40.32) / 2} 0 v 16.5 h 40.32 v -16.5" />
       <!--
       @pitch-change: d="M ($pitch_width/2 - 18.32/2) 0 v 16.5 h 40.32 v -16.5"
       -->
-      <path id="penalty-goal-area" d="M {{ eval(${pitch_width}/2 - 18.32/2) }} 0 v 5.5 h 18.32 v -5.5" />
+      <path id="penalty-goal-area" d="M ${(pitch_width - 18.32) / 2} 0 v 5.5 h 18.32 v -5.5" />
       <!--
       @pitch-change: cx="$pitch_width/2"
       -->
-      <circle id="penalty-spot" r="{{ eval(${pitch_lines_width}*2) }}" cx="{{ eval(${pitch_width}/2) }}" cy="11" stroke="none" fill="white" />
+      <circle id="penalty-spot" r="${pitch_lines_width * 2}" cx="${pitch_width / 2}" cy="11" stroke="none" fill="white" />
       <!--
-      @pitch-change: d="M {{ eval($\{pitch_width}/2 - 9.1/2) }} 16.5 a 9.1 9.1 0 0 0 9.1 0"
+      @pitch-change: d="M $\{(pitch_width - 9.1) }/2 - 9.1/2) 16.5 a 9.1 9.1 0 0 0 9.1 0"
       -->
-      <path id="penalty-arc" d="M {{ eval(${pitch_width}/2 - 9.1/2) }} 16.5 a 9.1 9.1 0 0 0 9.1 0" />
+      <path id="penalty-arc" d="M ${(pitch_width - 9.1) / 2} 16.5 a 9.1 9.1 0 0 0 9.1 0" />
     </g>
     <!--
     @pitch-change: transform="rotate(180, $pitch_width/2, $pitch_length/2)"
     -->
-    <use xlink:href="#penalty-up" transform="rotate(180, {{ eval(${pitch_width}/2) }}, {{ eval(${pitch_length}/2) }})" />
+    <use xlink:href="#penalty-up" transform="rotate(180, ${pitch_width / 2}, ${pitch_length / 2})" />
     <g id="corner-arcs" fill="none" stroke="white">
       <!--
-      @pitch-change: d="M 0 $extra_space a $extra_space $extra_space 0 0 0 $extra_space -$extra_spaceM"
+      @pitch-change: d="M 0 1 a 3 3 0 0 0 1 -1M"
       -->
       <path id="corner-arc-left-up" d="M 0 1 a 3 3 0 0 0 1 -1M" />
       <use id="corner-arc-right-down" xlink:href="#corner-arc-left-up" transform="translate(${pitch_width} ${pitch_length}) rotate(180, 0, 0)" />
