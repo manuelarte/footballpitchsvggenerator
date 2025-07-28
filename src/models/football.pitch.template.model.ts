@@ -1,7 +1,27 @@
 import type { FootballPitchVariables } from '@/models/football.pitch.variables.model'
 
 export class FootballPitchTemplate {
-  TEMPLATE = `<?xml version="1.0" encoding="UTF-8"?>
+  constructor () {}
+
+  apply (vars: FootballPitchVariables): string {
+    let copy = templateSVG(this)
+    copy = copy.replaceAll(`{{ $extra_space }}`, vars.extraSpace.toString())
+    copy = copy.replaceAll(`{{ $pitch_length }}`, vars.length.toString())
+    copy = copy.replaceAll(`{{ $pitch_lines_width }}`, vars.linesWidth.toString())
+    copy = copy.replaceAll(`{{ $pitch_width }}`, vars.width.toString())
+    copy = copy.replaceAll(`{{ $pitch_percentage_shown }}`, vars.percentageShown.toString())
+
+    const evalRe = /{{ eval\(([^}]*)\) }}/gi
+    copy = copy.replaceAll(evalRe, (_: string, p1: string) => {
+      return eval(p1).toString()
+    })
+
+    return copy
+  }
+}
+
+const templateSVG = (pitch_length: number, pitch_width: number): string => {
+  return `<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Measurement based on https://www.youtube.com/watch?v=rJg9wOQ7Qtg
 
@@ -115,22 +135,4 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
     </g>
   </g>
 </svg>`
-
-  constructor () {}
-
-  apply (vars: FootballPitchVariables): string {
-    let copy = this.TEMPLATE
-    copy = copy.replaceAll(`{{ $extra_space }}`, vars.extraSpace.toString())
-    copy = copy.replaceAll(`{{ $pitch_length }}`, vars.length.toString())
-    copy = copy.replaceAll(`{{ $pitch_lines_width }}`, vars.linesWidth.toString())
-    copy = copy.replaceAll(`{{ $pitch_width }}`, vars.width.toString())
-    copy = copy.replaceAll(`{{ $pitch_percentage_shown }}`, vars.percentageShown.toString())
-
-    const evalRe = /{{ eval\(([^}]*)\) }}/gi
-    copy = copy.replaceAll(evalRe, (_: string, p1: string) => {
-      return eval(p1).toString()
-    })
-
-    return copy
-  }
 }

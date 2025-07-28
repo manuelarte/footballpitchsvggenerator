@@ -41,7 +41,7 @@
               thumb-label="always"
             >
               <template #thumb-label="{ modelValue }">
-                {{ modelValue*100 }}%
+                {{ (modelValue*100).toFixed(2) }}%
               </template>
             </v-slider>
           </template>
