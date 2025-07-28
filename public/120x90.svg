@@ -3,22 +3,22 @@
 Measurement based on https://www.youtube.com/watch?v=rJg9wOQ7Qtg
 
 Constants:
-  $pitch_length: The length of the pitch.
-  $pitch_width: The width of the pitch.
-  $pitch_grass_cut_width: The roller mower's width that produces a different color effect in the grass.
-  $pitch_lines_width: The width of the lines.
-  $pitch_percentage_shown: The percentage of the pitch that is shown.
-  $extra_space: Extra space between the side lines and the end of the pitch.
-pitch is 90/120, but we give 3 units extra on each side.
+  ${pitch_length}: The length of the pitch.
+  ${pitch_width}: The width of the pitch.
+  ${pitch_grass_cut_width}: The roller mower's width that produces a different color effect in the grass.
+  ${pitch_lines_width}: The width of the lines.
+  ${pitch_percentage_shown}: The percentage of the pitch that is shown.
+  ${extra_space}: Extra space between the side lines and the end of the pitch.
+pitch is ${pitch_width}/${pitch_length}, but we give ${extra_space} units extra on each side.
 $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)"
 -->
 <svg
-  xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
-  role="img"
-  aria-labelledby="title"
-  preserveAspectRatio="xMidYMid meet"
-  viewBox="0 0 96 126">
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        role="img"
+        aria-labelledby="title"
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 96 126">
   <title id="title">Football pitch</title>
 
   <defs>
@@ -69,7 +69,7 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
     -->
     <circle id="center-circle" r="9.1" cx="45" cy="60" />
     <!--
-    @pitch-change: cx="($pitch_width/2" cy="$pitch_length/2"
+    @pitch-change: cx="(${pitch_width}/2" cy="${pitch_length}/2"
     -->
     <circle id="center-point" r="0.2" cx="45" cy="60" fill="white" />
 
@@ -81,7 +81,7 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
         <path id="goal-frame" fill="url(#net)" stroke-width="0.2" d="M 0 2.44 L 0 0 L 7.32 0 L 7.32 2.44" />
       </g>
       <!--
-      @pitch-change: d="M ($pitch_width/2 - 40.32/2) 0 v 16.5 h 40.32 v -16.5"
+      @pitch-change: d="M (${pitch_width}/2 - 40.32/2) 0 v 16.5 h 40.32 v -16.5"
       -->
       <path id="penalty-area" d="M 24.84 0 v 16.5 h 40.32 v -16.5" />
       <!--
@@ -93,7 +93,7 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
       -->
       <circle id="penalty-spot" r="0.2" cx="45" cy="11" stroke="none" fill="white" />
       <!--
-      @pitch-change: d="M {{ eval({{ $pitch_width }}/2 - 9.1/2) }} 16.5 a 9.1 9.1 0 0 0 9.1 0"
+      @pitch-change: d="M ${(pitch_width - 9.1) }/2 - 9.1/2) 16.5 a 9.1 9.1 0 0 0 9.1 0"
       -->
       <path id="penalty-arc" d="M 40.45 16.5 a 9.1 9.1 0 0 0 9.1 0" />
     </g>
@@ -103,7 +103,7 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
     <use xlink:href="#penalty-up" transform="rotate(180, 45, 60)" />
     <g id="corner-arcs" fill="none" stroke="white">
       <!--
-      @pitch-change: d="M 0 $extra_space a $extra_space $extra_space 0 0 0 $extra_space -$extra_spaceM"
+      @pitch-change: d="M 0 1 a 3 3 0 0 0 1 -1M"
       -->
       <path id="corner-arc-left-up" d="M 0 1 a 3 3 0 0 0 1 -1M" />
       <use id="corner-arc-right-down" xlink:href="#corner-arc-left-up" transform="translate(90 120) rotate(180, 0, 0)" />
