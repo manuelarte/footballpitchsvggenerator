@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.2.0](https://github.com/manuelarte/footballpitchsvggenerator/compare/v1.1.0...v1.2.0) (2025-07-28)
+
+
+### Features
+
+* add presets ([9ff5b66](https://github.com/manuelarte/footballpitchsvggenerator/commit/9ff5b66f77f2e181eb49d45323a9d439d54b851b))
+* generate customized svg football field ([695b0c7](https://github.com/manuelarte/footballpitchsvggenerator/commit/695b0c786e4d7e8b476d8b8b35f70577a3a7fb01))
+
+
+### Bug Fixes
+
+* deploy pages ([028f886](https://github.com/manuelarte/footballpitchsvggenerator/commit/028f886007555c17679c9fa6144432f346b84280))
+* fix base vite url ([214ddb5](https://github.com/manuelarte/footballpitchsvggenerator/commit/214ddb51d4a49fd84b6ec11360fc92a587d0e3c6))
+
 ## [1.1.0](https://github.com/manuelarte/footballpitchsvggenerator/compare/1.0.0...v1.1.0) (2025-07-28)
 
 
