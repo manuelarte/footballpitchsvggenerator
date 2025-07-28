@@ -10,6 +10,7 @@
           <template #width>
             <v-slider
               v-model="width"
+              class="slider"
               label="Width"
               max="90"
               min="45"
@@ -24,6 +25,7 @@
           <template #length>
             <v-slider
               v-model="length"
+              class="slider"
               direction="vertical"
               label="Length"
               max="120"
@@ -40,6 +42,7 @@
           <template #percentageShown>
             <v-slider
               v-model="percentageShown"
+              class="slider"
               direction="vertical"
               label="Percentage Shown"
               max="1"
@@ -90,6 +93,8 @@
 </script>
 
 <style scoped lang="sass">
+  .slider :deep(.v-slider-thumb)
+    z-index: 2
   .fab
     position: fixed
     bottom: 3rem
