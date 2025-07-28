@@ -56,8 +56,8 @@
   import PitchCustomization from '@/components/PitchCustomization.vue'
   import { FootballPitchVariables } from '@/models/football.pitch.variables.model'
 
-  const width = ref(90)
-  const length = ref(120)
+  const length = ref(105)
+  const width = ref(68)
   const percentageShown = ref(1)
 
   const variables = computed(() => {
