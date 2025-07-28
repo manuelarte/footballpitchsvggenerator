@@ -3,10 +3,10 @@
     <v-row>
       <v-col>
         <v-row>
-          <v-col cols="2">
+          <v-col cols="3">
             <slot name="length" />
           </v-col>
-          <v-col cols="8">
+          <v-col cols="6">
             <v-row>
               <slot name="width" />
             </v-row>
@@ -30,7 +30,7 @@
               </v-col>
             </v-row>
           </v-col>
-          <v-col cols="2">
+          <v-col cols="3">
             <slot name="percentageShown" />
           </v-col>
         </v-row>

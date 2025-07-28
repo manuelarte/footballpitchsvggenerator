@@ -15,7 +15,11 @@
               min="45"
               step="0.5"
               thumb-label="always"
-            />
+            >
+              <template #thumb-label="{ modelValue }">
+                {{ (modelValue) }}m
+              </template>
+            </v-slider>
           </template>
           <template #length>
             <v-slider
@@ -27,7 +31,11 @@
               reverse
               step="0.5"
               thumb-label="always"
-            />
+            >
+              <template #thumb-label="{ modelValue }">
+                {{ (modelValue) }}m
+              </template>
+            </v-slider>
           </template>
           <template #percentageShown>
             <v-slider
