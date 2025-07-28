@@ -10,6 +10,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./components/AppFooter.vue')['default']
     PitchCustomization: typeof import('./components/PitchCustomization.vue')['default']
+    PitchPresets: typeof import('./components/PitchPresets.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

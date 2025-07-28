@@ -48,6 +48,9 @@
         </PitchCustomization>
       </v-col>
     </v-row>
+    <div class="fab">
+      <PitchPresets @preset-selected="onPresentSelected" />
+    </div>
   </v-container>
 
 </template>
@@ -71,4 +74,16 @@
   const goToGitHubPage = (): void => {
     window.open('https://github.com/manuelarte/footballpitchsvggenerator')
   }
+
+  const onPresentSelected = (value: any): void => {
+    length.value = value.length
+    width.value = value.width
+  }
 </script>
+
+<style scoped lang="sass">
+  .fab
+    position: fixed
+    bottom: 3rem
+    right: 1rem
+</style>
