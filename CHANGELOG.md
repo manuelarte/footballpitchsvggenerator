@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/manuelarte/footballpitchsvggenerator/compare/1.0.0...v1.1.0) (2025-07-28)
+
+
+### Features
+
+* add presets ([9ff5b66](https://github.com/manuelarte/footballpitchsvggenerator/commit/9ff5b66f77f2e181eb49d45323a9d439d54b851b))
+
 ## 1.0.0 (2025-07-27)
 
 
