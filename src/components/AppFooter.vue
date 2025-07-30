@@ -12,6 +12,7 @@
       target="_blank"
       :title="item.title"
     >
+      {{ item.title }}
       <v-icon
         :icon="item.icon"
         :size="16"
@@ -19,13 +20,17 @@
     </a>
   </v-footer>
 </template>
-
 <script setup lang="ts">
   const items = [
     {
       title: 'manuelarte',
       icon: `mdi-github`,
       href: 'https://github.com/manuelarte',
+    },
+    {
+      title: 'football-logos',
+      icon: `mdi-github`,
+      href: 'https://github.com/luukhopman/football-logos',
     },
   ]
 </script>
