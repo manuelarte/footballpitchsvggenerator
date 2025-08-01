@@ -51,19 +51,28 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
     </pattern>
   </defs>
 
-  <rect id="pitch-part1" width="100%" height="10" fill="url(#grass1)"/>
-  <rect id="pitch-part1" width="100%" height="10" y="10" fill="url(#grass2)"/>
-  <rect id="pitch-part1" width="100%" height="10" y="20" fill="url(#grass1)"/>
-  <rect id="pitch-part1" width="100%" height="10" y="30" fill="url(#grass2)"/>
-  <rect id="pitch-part1" width="100%" height="10" y="40" fill="url(#grass1)"/>
-  <rect id="pitch-part1" width="100%" height="10" y="50" fill="url(#grass2)"/>
-  <rect id="pitch-part1" width="100%" height="10" y="60" fill="url(#grass1)"/>
-  <rect id="pitch-part1" width="100%" height="10" y="70" fill="url(#grass2)"/>
-  <rect id="pitch-part1" width="100%" height="10" y="80" fill="url(#grass1)"/>
-  <rect id="pitch-part1" width="100%" height="10" y="90" fill="url(#grass2)"/>
-  <rect id="pitch-part1" width="100%" height="10" y="100" fill="url(#grass1)"/>
-  <rect id="pitch-part1" width="100%" height="10" y="110" fill="url(#grass2)"/>
-  <rect id="pitch-part1" width="100%" height="10" y="120" fill="url(#grass1)"/>
+  <rect id="pitch-part-1" width="100%" height="3" fill="url(#grass1)"/>
+  <rect id="pitch-part-2" width="100%" height="6" y="3" fill="url(#grass2)"/>
+  <rect id="pitch-part-3" width="100%" height="6" y="9" fill="url(#grass1)"/>
+  <rect id="pitch-part-4" width="100%" height="6" y="15" fill="url(#grass2)"/>
+  <rect id="pitch-part-5" width="100%" height="6" y="21" fill="url(#grass1)"/>
+  <rect id="pitch-part-6" width="100%" height="6" y="27" fill="url(#grass2)"/>
+  <rect id="pitch-part-7" width="100%" height="6" y="33" fill="url(#grass1)"/>
+  <rect id="pitch-part-8" width="100%" height="6" y="39" fill="url(#grass2)"/>
+  <rect id="pitch-part-9" width="100%" height="6" y="45" fill="url(#grass1)"/>
+  <rect id="pitch-part-10" width="100%" height="6" y="51" fill="url(#grass2)"/>
+  <rect id="pitch-part-11" width="100%" height="6" y="57" fill="url(#grass1)"/>
+  <rect id="pitch-part-12" width="100%" height="6" y="63" fill="url(#grass2)"/>
+  <rect id="pitch-part-13" width="100%" height="6" y="69" fill="url(#grass1)"/>
+  <rect id="pitch-part-14" width="100%" height="6" y="75" fill="url(#grass2)"/>
+  <rect id="pitch-part-15" width="100%" height="6" y="81" fill="url(#grass1)"/>
+  <rect id="pitch-part-16" width="100%" height="6" y="87" fill="url(#grass2)"/>
+  <rect id="pitch-part-17" width="100%" height="6" y="93" fill="url(#grass1)"/>
+  <rect id="pitch-part-18" width="100%" height="6" y="99" fill="url(#grass2)"/>
+  <rect id="pitch-part-19" width="100%" height="6" y="105" fill="url(#grass1)"/>
+  <rect id="pitch-part-20" width="100%" height="6" y="111" fill="url(#grass2)"/>
+  <rect id="pitch-part-21" width="100%" height="6" y="117" fill="url(#grass1)"/>
+  <rect id="pitch-part-22" width="100%" height="6" y="123" fill="url(#grass2)"/>
 
   <!--
   Grouping pitch lines
