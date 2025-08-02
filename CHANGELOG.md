@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/manuelarte/footballpitchsvggenerator/compare/1.1.0...v1.1.1) (2025-08-02)
+
+
+### Bug Fixes
+
+* no scroll ([#28](https://github.com/manuelarte/footballpitchsvggenerator/issues/28)) ([d07e89a](https://github.com/manuelarte/footballpitchsvggenerator/commit/d07e89af87ea5a543e412e50af26c5bae86168ea))
+* small bug of thumb behind img ([#22](https://github.com/manuelarte/footballpitchsvggenerator/issues/22)) ([ac742a7](https://github.com/manuelarte/footballpitchsvggenerator/commit/ac742a7d4aea7d3dd2c76fcb2747af3ef1e42616))
+
 ## [1.1.0](https://github.com/manuelarte/footballpitchsvggenerator/compare/1.0.0...v1.1.0) (2025-07-28)
 
 
