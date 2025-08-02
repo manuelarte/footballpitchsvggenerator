@@ -17,7 +17,7 @@
                   @mouseleave="mouseleave"
                   @mouseover="mouseover"
                 >
-                  <img alt="example football field" :src="`data:image/svg+xml;base64,${svgContent}`">
+                  <img alt="example football field" class="pitch" :src="`data:image/svg+xml;base64,${svgContent}`">
                   <v-btn
                     class="float-end position-absolute my-button"
                     density="comfortable"
@@ -73,6 +73,15 @@
 <style scoped lang="sass">
 .football-pitch-container
   position: relative
+  height: 80dvh
+  width: 100%
+  align-content: center
+  .pitch
+    display: block
+    margin: auto
+    height: 100%
+    max-width: 100%
+    aspect-ratio: auto
   .my-button
     position: absolute
     top: 16px
