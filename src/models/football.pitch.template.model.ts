@@ -8,13 +8,11 @@ export class FootballPitchTemplate {
   }
 }
 
-const templateSVG = (
-  pitch_length: number,
+function templateSVG (pitch_length: number,
   pitch_width: number,
   pitch_percentage_shown = 1,
   pitch_lines_width: number,
-  extra_space: number,
-): string => {
+  extra_space: number): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Measurement based on https://www.youtube.com/watch?v=rJg9wOQ7Qtg
