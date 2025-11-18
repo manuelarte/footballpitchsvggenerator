@@ -82,11 +82,11 @@
     )
   })
 
-  const goToGitHubPage = (): void => {
+  function goToGitHubPage (): void {
     window.open('https://github.com/manuelarte/footballpitchsvggenerator')
   }
 
-  const onPresentSelected = (value: any): void => {
+  function onPresentSelected (value: any): void {
     length.value = value.length
     width.value = value.width
   }

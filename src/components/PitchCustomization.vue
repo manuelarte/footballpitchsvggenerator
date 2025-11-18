@@ -57,13 +57,13 @@
 
   const downloadButtonStyle = ref()
 
-  const mouseover = (): void => {
+  function mouseover (): void {
     downloadButtonStyle.value = {
       display: 'block',
     }
   }
 
-  const mouseleave = () => {
+  function mouseleave () {
     downloadButtonStyle.value = {
       display: 'none',
     }
