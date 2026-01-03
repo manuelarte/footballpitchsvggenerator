@@ -72,7 +72,7 @@
 
   const length = ref(105)
   const width = ref(68)
-  const percentageShown = ref(1)
+  const percentageShown = ref(0.8)
 
   const variables = computed(() => {
     return new FootballPitchVariables(
