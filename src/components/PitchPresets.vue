@@ -49,7 +49,3 @@
 
   const emits = defineEmits(['preset-selected'])
 </script>
-
-<style scoped lang="sass">
-
-</style>

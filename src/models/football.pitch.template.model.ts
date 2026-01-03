@@ -1,18 +1,18 @@
 import type { FootballPitchVariables } from '@/models/football.pitch.variables.model'
 
 export class FootballPitchTemplate {
-  constructor () {}
-
   apply (vars: FootballPitchVariables): string {
-    return templateSVG(vars.length, vars.width, vars.percentageShown, vars.linesWidth, vars.extraSpace)
+    return templateSVG(vars.length, vars.width, vars.linesWidth, vars.extraSpace, vars.percentageShown)
   }
 }
 
-function templateSVG (pitch_length: number,
+function templateSVG (
+  pitch_length: number,
   pitch_width: number,
-  pitch_percentage_shown = 1,
   pitch_lines_width: number,
-  extra_space: number): string {
+  extra_space: number,
+  pitch_percentage_shown = 0.8,
+): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Measurement based on https://www.youtube.com/watch?v=rJg9wOQ7Qtg
