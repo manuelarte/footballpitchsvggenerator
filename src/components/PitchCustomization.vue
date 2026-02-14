@@ -17,7 +17,11 @@
                   @mouseleave="mouseleave"
                   @mouseover="mouseover"
                 >
-                  <img alt="example football field" class="pitch" :src="`data:image/svg+xml;base64,${svgContent}`">
+                  <img
+                    alt="example football field"
+                    class="pitch"
+                    :src="`data:image/svg+xml;base64,${svgContent}`"
+                  >
                   <v-btn
                     class="float-end position-absolute my-button"
                     density="comfortable"

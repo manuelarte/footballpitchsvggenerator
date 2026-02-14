@@ -17,7 +17,9 @@
         :prepend-avatar="value.logo"
         :value="value"
       >
-        <v-list-item-title @click="emits('preset-selected', value)">{{ key }}</v-list-item-title>
+        <v-list-item-title @click="emits('preset-selected', value)">
+          {{ key }}
+        </v-list-item-title>
       </v-list-item>
     </v-list>
   </v-menu>

@@ -1,7 +1,10 @@
 <template>
   <v-toolbar>
     <v-toolbar-title>Football Pitch SVG Generator</v-toolbar-title>
-    <v-btn icon="mdi-github" @click="goToGitHubPage()" />
+    <v-btn
+      icon="mdi-github"
+      @click="goToGitHubPage()"
+    />
   </v-toolbar>
   <v-container class="fill-height">
     <v-row justify="center">
@@ -63,7 +66,6 @@
       <PitchPresets @preset-selected="onPresentSelected" />
     </div>
   </v-container>
-
 </template>
 
 <script lang="ts" setup>
