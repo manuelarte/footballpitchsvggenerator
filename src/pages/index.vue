@@ -1,11 +1,13 @@
 <template>
   <v-toolbar>
     <v-toolbar-title>Football Pitch SVG Generator</v-toolbar-title>
+
     <v-btn
       icon="mdi-github"
       @click="goToGitHubPage()"
     />
   </v-toolbar>
+
   <v-container class="fill-height">
     <v-row justify="center">
       <v-col cols="12">
@@ -25,6 +27,7 @@
               </template>
             </v-slider>
           </template>
+
           <template #length>
             <v-slider
               v-model="length"
@@ -42,6 +45,7 @@
               </template>
             </v-slider>
           </template>
+
           <template #percentageShown>
             <v-slider
               v-model="percentageShown"
@@ -62,6 +66,7 @@
         </PitchCustomization>
       </v-col>
     </v-row>
+
     <div class="fab">
       <PitchPresets @preset-selected="onPresentSelected" />
     </div>

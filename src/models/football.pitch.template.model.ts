@@ -18,13 +18,13 @@ function templateSVG (
 Measurement based on https://www.youtube.com/watch?v=rJg9wOQ7Qtg
 
 Constants:
-  $\{pitch_length}: The length of the pitch.
-  $\{pitch_width}: The width of the pitch.
-  $\{pitch_grass_cut_width}: The roller mower's width that produces a different color effect in the grass.
-  $\{pitch_lines_width}: The width of the lines.
-  $\{pitch_percentage_shown}: The percentage of the pitch that is shown.
-  $\{extra_space}: Extra space between the side lines and the end of the pitch.
-pitch is $\{pitch_width}/$\{pitch_length}, but we give $\{extra_space} units extra on each side.
+  \${pitch_length}: The length of the pitch.
+  \${pitch_width}: The width of the pitch.
+  \${pitch_grass_cut_width}: The roller mower's width that produces a different color effect in the grass.
+  \${pitch_lines_width}: The width of the lines.
+  \${pitch_percentage_shown}: The percentage of the pitch that is shown.
+  \${extra_space}: Extra space between the side lines and the end of the pitch.
+pitch is \${pitch_width}/\${pitch_length}, but we give \${extra_space} units extra on each side.
 $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)"
 -->
 <svg
@@ -93,7 +93,7 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
     -->
     <circle id="center-circle" r="9.1" cx="${pitch_width / 2}" cy="${pitch_length / 2}" />
     <!--
-    @pitch-change: cx="($\{pitch_width}/2" cy="$\{pitch_length}/2"
+    @pitch-change: cx="(\${pitch_width}/2" cy="\${pitch_length}/2"
     -->
     <circle id="center-point" r="${pitch_lines_width * 2}" cx="${pitch_width / 2}" cy="${pitch_length / 2}" fill="white" />
 
@@ -105,7 +105,7 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
         <path id="goal-frame" fill="url(#net)" stroke-width="0.2" d="M 0 2.44 L 0 0 L 7.32 0 L 7.32 2.44" />
       </g>
       <!--
-      @pitch-change: d="M ($\{pitch_width}/2 - 40.32/2) 0 v 16.5 h 40.32 v -16.5"
+      @pitch-change: d="M (\${pitch_width}/2 - 40.32/2) 0 v 16.5 h 40.32 v -16.5"
       -->
       <path id="penalty-area" d="M ${(pitch_width - 40.32) / 2} 0 v 16.5 h 40.32 v -16.5" />
       <!--
@@ -117,7 +117,7 @@ $viewBox = "0 0 ($pitch_width + 2*$extra_space) ($pitch_length + 2*$extra_space)
       -->
       <circle id="penalty-spot" r="${pitch_lines_width * 2}" cx="${pitch_width / 2}" cy="11" stroke="none" fill="white" />
       <!--
-      @pitch-change: d="M $\{(pitch_width - 9.1) }/2 - 9.1/2) 16.5 a 9.1 9.1 0 0 0 9.1 0"
+      @pitch-change: d="M \${(pitch_width - 9.1) }/2 - 9.1/2) 16.5 a 9.1 9.1 0 0 0 9.1 0"
       -->
       <path id="penalty-arc" d="M ${(pitch_width - 9.1) / 2} 16.5 a 9.1 9.1 0 0 0 9.1 0" />
     </g>
