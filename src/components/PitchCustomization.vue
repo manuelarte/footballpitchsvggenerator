@@ -6,10 +6,12 @@
           <v-col cols="2">
             <slot name="length" />
           </v-col>
+
           <v-col cols="8">
             <v-row>
               <slot name="width" />
             </v-row>
+
             <v-row>
               <v-col>
                 <div
@@ -22,6 +24,7 @@
                     class="pitch"
                     :src="`data:image/svg+xml;base64,${svgContent}`"
                   >
+
                   <v-btn
                     class="float-end position-absolute my-button"
                     density="comfortable"
@@ -34,6 +37,7 @@
               </v-col>
             </v-row>
           </v-col>
+
           <v-col cols="2">
             <slot name="percentageShown" />
           </v-col>
