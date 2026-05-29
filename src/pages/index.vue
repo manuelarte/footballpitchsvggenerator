@@ -32,11 +32,11 @@
             <v-slider
               v-model="length"
               class="slider"
-              direction="vertical"
+              :direction="smAndDown ? 'horizontal' : 'vertical'"
               label="Length"
               max="120"
               min="90"
-              reverse
+              :reverse="!smAndDown"
               step="0.5"
               thumb-label="always"
             >
@@ -50,11 +50,11 @@
             <v-slider
               v-model="percentageShown"
               class="slider"
-              direction="vertical"
+              :direction="smAndDown ? 'horizontal' : 'vertical'"
               label="Percentage Shown"
               max="1"
               min="0.5"
-              reverse
+              :reverse="!smAndDown"
               step="0.01"
               thumb-label="always"
             >
@@ -74,8 +74,12 @@
 </template>
 
 <script lang="ts" setup>
+  import { useDisplay } from 'vuetify'
+
   import PitchCustomization from '@/components/PitchCustomization.vue'
   import { FootballPitchVariables } from '@/models/football.pitch.variables.model'
+
+  const { smAndDown } = useDisplay()
 
   const length = ref(105)
   const width = ref(68)
