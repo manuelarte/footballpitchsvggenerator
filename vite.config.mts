@@ -8,16 +8,22 @@ import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
 import Layouts from 'vite-plugin-vue-layouts-next'
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+import { VueRouterAutoImports } from 'vue-router/unplugin'
+import VueRouter from 'vue-router/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/footballpitchsvggenerator/',
   plugins: [
+    VueRouter({
+      dts: 'src/typed-router.d.ts',
+    }),
     Layouts(),
     AutoImport({
       imports: [
         'vue',
         'vue-router',
+        VueRouterAutoImports,
         {
           pinia: ['defineStore', 'storeToRefs'],
         },
